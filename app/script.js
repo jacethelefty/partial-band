@@ -39,9 +39,6 @@ $(function() {
         $("#required").css("display","none");
         $("#resetfields").css("display","inline-block");
     });
-    // $("input#title").blur( function() {
-    //     $("div#mainTitle").css("border","");
-    // });
     $("input[name=noun]").focus( function() {
         $("#nounspan").css("display","none");
         $("#required").css("display","none");
@@ -56,60 +53,60 @@ $(function() {
 
 
 
-  $("#submitWords").on("submit", function(e) {
-    e.preventDefault();
+$("#submitWords").on("submit", function(e) {
+  e.preventDefault();
 
-    if ($.trim($("input").val()) === "" || $.trim($("input[name=adjective]").val()) === "") {
-        $('#resetfields').css('display', 'none');
-        $('#required').css('display', 'inline-block');
-        $('#adjspan').css('display', 'inline-block');
-        return false;
-    }else if ($.trim($("input").val()) === "" || $.trim($("input[name=noun]").val()) === "") {
-        $('#resetfields').css('display', 'none');
-        $('#required').css('display', 'inline-block');
-        $('#nounspan').css('display', 'inline-block');
-        return false;
-    }else if ($.trim($("input").val()) === "" || $.trim($("input[name=verb]").val()) === "") {
-        $('#resetfields').css('display', 'none');
-        $('#required').css('display', 'inline-block');
-        $('#verbspan').css('display', 'inline-block');
-        return false;
-    }
+  if ($.trim($("input").val()) === "" || $.trim($("input[name=adjective]").val()) === "") {
+      $('#resetfields').css('display', 'none');
+      $('#required').css('display', 'inline-block');
+      $('#adjspan').css('display', 'inline-block');
+      return false;
+  }else if ($.trim($("input").val()) === "" || $.trim($("input[name=noun]").val()) === "") {
+      $('#resetfields').css('display', 'none');
+      $('#required').css('display', 'inline-block');
+      $('#nounspan').css('display', 'inline-block');
+      return false;
+  }else if ($.trim($("input").val()) === "" || $.trim($("input[name=verb]").val()) === "") {
+      $('#resetfields').css('display', 'none');
+      $('#required').css('display', 'inline-block');
+      $('#verbspan').css('display', 'inline-block');
+      return false;
+  }
 
-    var adjective = $("input[name=adjective]").val();
-    var adjPost;
-    var noun = $("input[name=noun]").val();
-    var nounPost;
-    var verb = $("input[name=verb]").val();
-    var verbPost;
+  var adjective = $("input[name=adjective]").val();
+  var adjPost;
+  var noun = $("input[name=noun]").val();
+  var nounPost;
+  var verb = $("input[name=verb]").val();
+  var verbPost;
 
-    if (adjective) {
-      adjPost = {word: adjective};
-      $.post("adjective", adjPost, function(response) {
-        var adjectiveRes = response.msg;
-        $("#adjectiveRes").text(adjectiveRes);
-      });
-    };
+  if (adjective) {
+    adjPost = {word: adjective};
+    $.post("adjective", adjPost, function(response) {
+      var adjectiveRes = response.msg;
+      $("#adjectiveRes").text(adjectiveRes);
+    });
+  };
 
-    if (noun) {
-      nounPost = {word: noun};
-      $.post("noun", nounPost, function(response) {
-        var nounRes = response.msg;
-        $("#nounRes").text(nounRes);
-      });
-    };
+  if (noun) {
+    nounPost = {word: noun};
+    $.post("noun", nounPost, function(response) {
+      var nounRes = response.msg;
+      $("#nounRes").text(nounRes);
+    });
+  };
 
-    if (verb) {
-      verbPost = {word: verb};
-      $.post("verb", verbPost, function(response) {
-        var verbRes = response.msg;
-        $("#verbRes").text(verbRes);
-      });
-    };
+  if (verb) {
+    verbPost = {word: verb};
+    $.post("verb", verbPost, function(response) {
+      var verbRes = response.msg;
+      $("#verbRes").text(verbRes);
+    });
+  };
 
-    $( '#floater').css('display', 'block');
-    $( '#submitWords').css('display', 'none');
-    $( 'span.icon-cool' ).toggleClass( 'icon-evil' );
+  $( '#floater').css('display', 'block');
+  $( '#submitWords').css('display', 'none');
+  $( 'span.icon-cool' ).toggleClass( 'icon-evil' );
 
   });
 
@@ -126,7 +123,8 @@ $(function(){
 
   $(function(){
     $('#resetfields').click(function(){
-      location.reload();
+      document.getElementById("submitWords").reset();
+      $(this).css('display', 'none');
     });   //END CLICK FUNCTION
   });     //END FUNCTION
 
