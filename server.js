@@ -8,6 +8,7 @@ var Adjective = require('./lib/adjective.js');
 var Noun = require('./lib/noun.js');
 var Verb = require('./lib/verb.js');
 var getRandomWord = require('./lib/getRandomWord.js');
+var postWord = require('./lib/postWord.js');
 
 var adjective = new Adjective();
 var noun = new Noun();
@@ -20,16 +21,6 @@ app.use(bodyparser.urlencoded({
 
 app.use(express.static(__dirname + '/app/'));
 
-
-function postWord (word, wordObject) {
-  if (wordObject.hasOwnProperty(word)) {
-    return {msg: 'We already have your awesome word, ' + word + ', in our list.'};
-  }
-
-  wordObject[word] = true;
-  console.dir(wordObject);
-  return {msg: 'Thanks for submitting ' + word + '!'};
-};
 
 app.get('/adjective', function(req, res) {
   res.json(getRandomWord(adjective));
@@ -45,6 +36,14 @@ app.get('/noun', function(req, res) {
 
 app.post('/adjective', function(req, res) {
   var word = postWord(req.body.word, adjective);
+  res.json(word);
+});
+app.post('/verb', function(req, res) {
+  var word = postWord(req.body.word, verb);
+  res.json(word);
+});
+app.post('/noun', function(req, res) {
+  var word = postWord(req.body.word, noun);
   res.json(word);
 });
 

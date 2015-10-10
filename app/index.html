@@ -1,26 +1,62 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Random Band Name Generator</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles.css" type='text/css'>
+    <link rel="stylesheet" href="fonts.css" type='text/css'>
+  </head>
   <body>
-    <h2>
-      Welcome to the Band Name Generator
-    </h2>
+    <h1>Random Band Name Generator</h1>
 
-    <button id="name">Get a random band name!</button>
+    <span class="icon-cool"></span>
 
-    <p>
-      Your name:
-      <span id="adjective"></span>
-      <span id="verb"></span>
-      <span id="noun"></span>
-    </p>
+    <button id='name' class='button'>click me for random band name</button>
+
+    <div id="pBack">
+      <p id='randomRefresh'>
+        random band name:
+      </p>
+    </div>
+
+    </br>
+
+    <div id="resultback">
+       <span id='adjective'>RANDOM BAND NAME PRINTS HERE</span><span class='break'></span><span id='noun'></span><span class='break'></span><span id='verb'></span>
+    </div>
 
     <br>
-    <h3>Submit words!</h3>
-    <form id="submitWords">
-      <label>Give us an adjective:</label><input type="text" name="adjective">
-      <input type="submit" value="Submit Words"/>
-    </form>
 
-    <p id='adjectiveRes'></p>
+    <div id="pBack">
+      <p id='submitnew'>
+        submit new words:
+      </p>
+      <span class="right" id="required"><span class="icon-arrow-left"></span>&nbsp indicates required</span>
+      <span class="right" id="resetfields"><span class="icon-spinner11"></span>&nbsp reset fields</span>
+    </div>
+
+    <div id="wrap">
+        <form id="submitWords">
+          <label>Give us an adjective:</label><input type="text" name="adjective" id="adjective" class="right" placeholder="enter new adjective here" autocomplete=off ><span class="icon-arrow-left" id="adjspan"></span></br>
+
+          <label>Give us a noun:</label><input type="text" name="noun" id="noun" class="right" placeholder="enter new noun here" autocomplete=off><span class="icon-arrow-left" id="nounspan"></span></br>
+
+          <label>Give us a verb:</label><input type="text" name="verb" id="verb" class="right" placeholder="enter new verb here" autocomplete=off><span class="icon-arrow-left" id="verbspan"></span>
+
+          <input type="submit" value="submit new words"  class="button bottombtn" />
+        </form>
+
+
+    </div>
+
+    <div id="floater">
+      <p id='adjectiveRes'><p id='verbRes'><p id='nounRes'></p></p></p>
+      <p id="close">CLOSE &nbsp X</p>
+    </div>
+
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="script.js"></script>
