@@ -1,8 +1,8 @@
 'use strict';
 
-var express = require('express');   //import app
-var app = express();    //instance of app
-var bodyparser = require('body-parser');    //
+var express = require('express');
+var app = express();
+var bodyparser = require('body-parser');
 var port = process.env.PORT || 3000;
 var Adjective = require('./lib/adjective.js');
 var Noun = require('./lib/noun.js');
@@ -20,7 +20,6 @@ app.use(bodyparser.urlencoded({
 }));
 
 app.use(express.static(__dirname + '/app/'));
-
 
 app.get('/adjective', function(req, res) {
   res.json(getRandomWord(adjective));
@@ -54,7 +53,3 @@ app.get('/', function(req, res) {
 app.listen(port, function() {
   console.log('server starting. available at http://localhost:' + port);
 });
-
-// app.get('/', function(req, res) {
-//   res.send('hello, universe');
-// });

@@ -86,7 +86,6 @@ h2{
 #submit{
   margin: 30px;
 }
-
 input[type=text] {
   height:30px;
   width:280px;
@@ -116,7 +115,6 @@ label{
   line-height:2em;
   color: #F37B7F;
 }
-
  #randomRefresh, #refresh, #submitnew{
   color: #FDDDD7;
   font-size: 1em;
@@ -169,8 +167,8 @@ label{
   color: #F37B7F;
 }
 #adjspan, #nounspan, #verbspan{
-display: none;
-width: 30px;
-float: right;
-margin: 20px -360px 0 0;
+  display: none;
+  width: 30px;
+  float: right;
+  margin: 20px -360px 0 0;
 }
