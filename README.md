@@ -12,4 +12,11 @@ To play with this repo:
 
 RESOURCES:
 
+.focus jQuery
+https://api.jquery.com/focus/
 
+form reset
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset
+
+replacewith jGquery
+http://api.jquery.com/replacewith/
